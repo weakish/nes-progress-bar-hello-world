@@ -17,8 +17,17 @@
   </div>
   </body>
   <script>
-    const request = new Request('/.netlify/functions/progress')
-    request.mode = 'cors'
+    const hash = window.location.hash.substr(1)
+    const payload = JSON.parse(decodeURI(hash))
+
+    const request = new Request('/.netlify/functions/progress', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(payload)
+    })
+    
     const container = document.getElementById('container')
     fetch(request)
         .then(response => response.json())
@@ -28,8 +37,8 @@
 
             const progressBar = document.createElement('progress')
             progressBar.className = 'nes-progress'
-            progressBar.value = value
-            progressBar.max = max
+            progressBar.value = value.toString()
+            progressBar.max = max.toString()
 
             container.appendChild(progressBar)
         })

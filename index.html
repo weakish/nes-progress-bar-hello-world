@@ -3,6 +3,18 @@
     <link href="https://unpkg.com/nes.css/css/nes-core.min.css" rel="stylesheet" />
   </head>
   <body>
+  <!--
+    Place the progress bar at the center of the viewport.
+
+    `position: absolute` and `top: 50%; left: 50%`
+    places the origin `(0, 0)` of the progress bar at the center of the viewport.
+    But we want to place the center point of the progress bar at the center.
+    So we use `translate(-50%, -50%)` to move the progress bar.
+
+    Credit: [Saman Sadeghpour](https://stackoverflow.com/a/31029494/)
+  -->
+  <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);">
     <progress class="nes-progress" value="42" max="100"></progress>
+  </div>
   </body>
 </html>

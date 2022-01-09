@@ -5,15 +5,15 @@ A hello world project powered by [NES.css] and [Netlify Functions].
 
 The frontend part is a simple HTML page showing a progress bar.
 
-The input is recerived from the hash part of the URL:
+The input is received from the hash part of the URL:
 
 ```
 https://progressbar.mmap.page/#{%22url%22:%20%22https://example.com/api%22,%20%22value_key_name%22:%20%22foo%22,%20%22max_key_name%22:%22bar%22}
 ```
 
-Here progressbar.mmap.page is where this project is hosted.
+Here `progressbar.mmap.page` is where this project is hosted.
 
-`https://example.com/api` should be a site return something like:
+`https://example.com/api` should be a site that returns something like:
 
 ```json
 {
@@ -23,7 +23,7 @@ Here progressbar.mmap.page is where this project is hosted.
 }
 ```
 
-And the value of `foo` and `bar` will be used as the `value` and `max` attribute of the progress bar element (`<progress>`).
+And the value of `foo` and `bar` will be used as the `value` and `max` attributes of the progress bar element (`<progress>`).
 
 On the frontend part, it uses [NES.css] for styling and a few lines of JavaScript (without any framework or library) to parse user input and invoke the Netlify Function.
 
